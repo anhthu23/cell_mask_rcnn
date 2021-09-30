@@ -93,7 +93,7 @@ def detect(model, images_path):
     os.makedirs(submit_dir)
 
     # Run object detection
-    log('********************************* erythrocyte and leucocyte detection ***********************************')
+    log('********************************* Erythrocyte and Leucocyte detection ***********************************')
     logfiles = ""
     for image_id in dataset.image_ids:
         image = dataset.load_image(image_id)
@@ -128,6 +128,9 @@ def detect(model, images_path):
             f.write(logfiles)
             f.write('\n')
     
+############################################################
+#  Detection
+############################################################
 
 if __name__ == '__main__':
     import argparse
@@ -155,7 +158,7 @@ if __name__ == '__main__':
     print("images: ", args.images)
     print("weights: ", args.weights)
  
-    weights = os.path.join(ROOT_DIR, "logs\object20210828T0156\mask_rcnn_object_0016.h5")
+    weights = os.path.join(ROOT_DIR, "logs\object20210828T0156\mask_rcnn_object_0040.h5")
     if args.weights:
         weights = args.weights 
     if args.command.lower() == "detect":
@@ -163,5 +166,4 @@ if __name__ == '__main__':
     else:
         print("command not found: ", args.command)
         
-    
     
