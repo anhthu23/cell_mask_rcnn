@@ -87,7 +87,6 @@ class CustomDataset(utils.Dataset):
         # We mostly care about the x and y coordinates of each region
 
         allFiles = [f for f in os.listdir(os.path.join(dataset_dir,"masks")) if os.path.isfile(os.path.join(dataset_dir,"masks", f))]
-        # print(allFiles)
         annotations = list(json.load(open(os.path.join(dataset_dir,"masks", f)))[f.replace('.json','.png')] for f in allFiles)
         # annotations1 = json.load(open(os.path.join(dataset_dir,"masks", '0.json')))
 
@@ -172,17 +171,9 @@ class CustomDataset(utils.Dataset):
         num_ids = info['num_ids']
         mask = np.zeros([info["height"], info["width"], len(info["polygons"])],
                         dtype=np.uint8)
-        # print(info["id"])
-        # print(mask)
-        # print(info["height"])
-        # print(info["width"])
-        # print(info["polygons"])
-        # print("-------------------------------------------------")
+    
         for i, p in enumerate(info["polygons"]):
             rr, cc = skimage.draw.polygon(p['all_points_y'], p['all_points_x'])
-            # print(rr)
-            # print(i)
-            # print(cc)
             mask[rr, cc, i] = 1
 
  
@@ -303,7 +294,7 @@ if __name__ == '__main__':
  
     # Parse command line arguments
     parser = argparse.ArgumentParser(
-        description='Train Mask R-CNN to detect custom class.')
+        description='Train Mask R-CNN to detect blood cells class.')
     parser.add_argument("command",
                         metavar="<command>",
                         help="'train' or 'splash'")
