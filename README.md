@@ -1,7 +1,7 @@
 # Training and Detection on Erythrocytes and Leucocytes
 
-##Trained Model
-(https://drive.google.com/drive/folders/1EVYDdEjKRNLR4bPV15Op9IcinW8bQ_iN?usp=sharing)
+## Trained model
+https://drive.google.com/drive/folders/1EVYDdEjKRNLR4bPV15Op9IcinW8bQ_iN?usp=sharing
 
 ## Prepare environment
 - step 1: cmd
